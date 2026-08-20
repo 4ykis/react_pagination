@@ -28,8 +28,8 @@ export const App: React.FC = () => {
       <h1>Items with Pagination</h1>
 
       <p className="lead" data-cy="info">
-        Page {currentPage} 
-        (items {firstItemOnPage + 1} - {lastItemOnPage} of {items.length})
+        Page {currentPage} (items {firstItemOnPage + 1} - {lastItemOnPage} of{' '}
+        {items.length})
       </p>
 
       <div className="form-group row">
@@ -38,12 +38,11 @@ export const App: React.FC = () => {
             onChange={e => handleSelectOnChange(e.target.value)}
             data-cy="perPageSelector"
             id="perPageSelector"
+            value={itemsPerPage.toString()}
             className="form-control"
           >
             <option value="3">3</option>
-            <option selected value="5">
-              5
-            </option>
+            <option value="5">5</option>
             <option value="10">10</option>
             <option value="20">20</option>
           </select>
