@@ -10,13 +10,10 @@ export const App: React.FC = () => {
   const [itemsPerPage, setItemsPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const firstItemOnPage: number = (currentPage - 1) * itemsPerPage;
-  const lastItemOnPage: number = Math.min(
-    currentPage * itemsPerPage,
-    items.length,
-  );
+  const firstItem: number = (currentPage - 1) * itemsPerPage;
+  const lastItem: number = Math.min(currentPage * itemsPerPage, items.length);
 
-  const itemsOnPage: string[] = items.slice(firstItemOnPage, lastItemOnPage);
+  const itemsOnPage: string[] = items.slice(firstItem, lastItem);
 
   function handleSelectOnChange(x: string) {
     setCurrentPage(1);
@@ -28,8 +25,8 @@ export const App: React.FC = () => {
       <h1>Items with Pagination</h1>
 
       <p className="lead" data-cy="info">
-        Page {currentPage} (items {firstItemOnPage + 1} - {lastItemOnPage} of{' '}
-        {items.length})
+        Page {currentPage} (items {firstItem + 1} - {lastItem} of {items.length}
+        )
       </p>
 
       <div className="form-group row">
